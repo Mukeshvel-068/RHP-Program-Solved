@@ -1,1 +1,28 @@
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner obj=new Scanner(System.in);
+        String str=obj.next();
+        int max=0;
+        int curr=0;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        map.put(0,-1);
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+                curr+=1;
+                
+            }
+            else{
+                curr-=1;
+            }
+            if(map.containsKey(curr)){
+                max=Math.max(max,i-map.get(curr));
+            }
+            else{
+                map.put(curr,i);
+            }
+        }
+        System.out.println(max);
+    }
+}
